@@ -6,10 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import org.springframework.stereotype.Service;
+
 
 import com.sri.restweb.data.Patient;
 
+import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.core.Response;
 
 
@@ -35,11 +38,13 @@ public class PatientServiceImpl implements PatientService {
 		List<Patient> response = new ArrayList<>(results);
 		return response;
 	}
-	@Override
-	public Patient getPatient(Long id) {
-		
-		return patients.get(id);
-	}
+	 @Override
+		public Patient getPatient(Long id) {
+			if (patients.get(id) == null) {
+				throw new NotFoundException();
+			}
+			return patients.get(id);
+		}
 	@Override
 	public Response createPatient(Patient patient) {
 		patient.setId(++currentId);
