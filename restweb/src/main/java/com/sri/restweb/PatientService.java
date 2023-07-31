@@ -15,6 +15,8 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 
+@Consumes("application/xml,application/json")
+@Produces("application/xml,application/json")
 @Path("/patientservice")
 public interface PatientService {
 	
