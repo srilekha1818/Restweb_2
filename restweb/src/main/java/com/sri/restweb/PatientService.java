@@ -7,6 +7,8 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.Response;
 
 import com.sri.restweb.data.Patient;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.Consumes;
 
 
 import jakarta.ws.rs.DELETE;
